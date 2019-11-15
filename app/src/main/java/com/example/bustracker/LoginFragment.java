@@ -27,5 +27,13 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
+    public static LoginFragment newInstance() {
+        LoginFragment loginfrag = new LoginFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, toolbarTitle);
+//        loginfrag.setArguments(args);
+        return loginfrag;
+    }
+
 
 }

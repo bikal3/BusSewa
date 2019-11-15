@@ -27,5 +27,12 @@ public class RegisterFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_register, container, false);
     }
+    public static RegisterFragment newInstance() {
+        RegisterFragment registerFrag = new RegisterFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, toolbarTitle);
+//        registerFrag.setArguments(args);
+        return registerFrag;
+    }
 
 }
