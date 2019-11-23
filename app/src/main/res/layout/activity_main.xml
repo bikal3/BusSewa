@@ -69,7 +69,7 @@
                 app:layout_constraintVertical_bias="0.048" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btn_signin_main"
                 android:layout_width="350sp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -115,7 +115,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/btn_busroute_main"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_plain"
@@ -157,7 +157,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/btn_bus_location_main"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_plain"
@@ -200,7 +200,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/btn_news_main"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/news"
@@ -237,7 +237,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/btn_job_vacancy_main"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/job_vacancy"

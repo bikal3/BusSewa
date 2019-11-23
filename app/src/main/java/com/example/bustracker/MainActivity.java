@@ -10,14 +10,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     private Button btnlogin, btnregister;
     private View layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.busroute_main);
 //        btnlogin = findViewById(R.id.btn_main_login);
 //        btnregister = findViewById(R.id.btn_main_register);
 //        btnlogin.setOnClickListener(this);
@@ -36,12 +36,10 @@ public class MainActivity extends AppCompatActivity{
 //        Fragment activeFragment = null;
 //        switch (v.getId()) {
 //            case R.id.btn_main_login:
-//                activeFragment = LoginFragment.newInstance();
 //
 //                break;
 //            case R.id.btn_main_register:
-//                activeFragment = RegisterFragment.newInstance();
-//                break;
+//
 //        }
 //        loadFragment(activeFragment);
 //    }
