@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".detialui.NewsDetials"></activity>
+        <activity android:name=".detialui.JobvacancyDetials" />
+        <activity android:name=".detialui.BusRouteDetial" />
+        <activity android:name=".ui.BusLocationsActivity" />
+        <activity android:name=".ui.JobVacancyActivity" />
+        <activity android:name=".ui.NewsActivity" />
+        <activity android:name=".ui.BusRouteActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

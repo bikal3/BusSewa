@@ -37,4 +37,16 @@ dependencies {
     implementation 'com.android.support:design:29.0.0'
     implementation 'com.google.android.material:material:1.1.0-alpha02'
 
+
+    // circle image view
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    // gson
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    // http logger
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.0'
+    // picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }
