@@ -9,4 +9,5 @@
     <color name="colorBackgrounds">#EDDFC8</color>
     <color name="colorButton">#D86342</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorOverlay">#000000</color>
 </resources>

@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.busroute_main);
+        setContentView(R.layout.activity_main);
+
 //        btnlogin = findViewById(R.id.btn_main_login);
 //        btnregister = findViewById(R.id.btn_main_register);
 //        btnlogin.setOnClickListener(this);
