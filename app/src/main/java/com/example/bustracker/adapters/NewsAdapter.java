@@ -27,12 +27,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @NonNull
     @Override
     public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View newsView= LayoutInflater.from(context).inflate(R.layout.news_recyclerview_layout,parent,false);
+        View newsView = LayoutInflater.from(context).inflate(R.layout.news_recyclerview_layout, parent, false);
         return new NewsViewHolder(newsView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
+        NewsModel newsModel=newsList.get(position);
+        holder.bindData(newsModel);
 
     }
 
@@ -43,15 +45,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     public class NewsViewHolder extends RecyclerView.ViewHolder {
         private ImageView newsImage;
-        private TextView newsTitle,newsDate,newsPublication;
+        private TextView newsTitle, newsDate, newsPublication;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
-            newsTitle=itemView.findViewById(R.id.txt_title_news);
-            newsDate=itemView.findViewById(R.id.txt_date_news);
-            newsPublication=itemView.findViewById(R.id.txt_publish_news);
-            newsImage=itemView.findViewById(R.id.img_news);
-
+            newsTitle = itemView.findViewById(R.id.txt_title_news);
+            newsDate = itemView.findViewById(R.id.txt_date_news);
+            newsPublication = itemView.findViewById(R.id.txt_publish_news);
+            newsImage = itemView.findViewById(R.id.img_news);
+        }
+        public void bindData(NewsModel newsModel){
+            newsTitle.setText(newsModel.getTitle());
+            newsDate.setText(newsModel.getNdate());
+            newsPublication.setText(newsModel.getPublication());
         }
     }
 }
