@@ -64,6 +64,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                 }
             });
         }
+
         public void bindData(NewsModel newsModel){
             newsTitle.setText(newsModel.getTitle());
 //            newsDate.setText(newsModel.getNdate());

@@ -1,5 +1,6 @@
 package com.example.bustracker.api;
 
+import com.example.bustracker.response.JobVacancyResponse;
 import com.example.bustracker.response.NewsResponse;
 
 import retrofit2.Call;
@@ -12,4 +13,8 @@ public interface APIs {
     Call<NewsResponse> fetchnews();
     @GET("news/{id}")
     Call<NewsResponse> fetchsingnews(@Path("id")String id);
+    @GET("jobvacancy")
+    Call<JobVacancyResponse> fetchjobVacancy();
+    @GET("jobvacancy/{id}")
+    Call<JobVacancyResponse> fetchsingjobvacancy(@Path("id")String id);
 }

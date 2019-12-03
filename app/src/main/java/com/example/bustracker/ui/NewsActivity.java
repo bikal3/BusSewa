@@ -1,6 +1,7 @@
 package com.example.bustracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,7 +33,7 @@ public class NewsActivity extends AppCompatActivity {
         newsModelsList= new ArrayList<>();
 
         newsrecycler=findViewById(R.id.news_recycler);
-        newsrecycler.setLayoutManager(new LinearLayoutManager(this));
+        newsrecycler.setLayoutManager(new GridLayoutManager(this,2));
         getNewsdetials();
     }
     private  void getNewsdetials(){
