@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public class NewsModel implements Serializable {
     private String title,ndate,publication,description1,description2;
+    private String id;
+
+    public String getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;

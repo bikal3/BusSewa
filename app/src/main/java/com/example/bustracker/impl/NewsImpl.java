@@ -42,4 +42,18 @@ public class NewsImpl {
         }
         return news;
     }
+    public NewsResponse getSingleNews(String id){
+        NewsResponse newsResponse=null;
+        Call<NewsResponse> singlenewscall=newsApi.fetchsingnews(id);
+        try{
+            Response<NewsResponse> singleNewsResponse=singlenewscall.execute();
+            if (!singleNewsResponse.isSuccessful()){
+                return newsResponse;
+            }
+            newsResponse=singleNewsResponse.body();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return newsResponse;
+    }
 }

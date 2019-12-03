@@ -6,7 +6,7 @@ import java.util.List;
 
 public class NewsResponse {
     private List<NewsModel> newslist;
-    private NewsModel model;
+    private NewsModel newsDetails;
     private String message;
 
     public List<NewsModel> getNewslist() {
@@ -14,7 +14,7 @@ public class NewsResponse {
     }
 
     public NewsModel getModel() {
-        return model;
+        return newsDetails;
     }
 
     public String getMessage() {
