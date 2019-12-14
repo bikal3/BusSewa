@@ -33,7 +33,7 @@ public class NewsActivity extends AppCompatActivity {
         newsModelsList= new ArrayList<>();
 
         newsrecycler=findViewById(R.id.news_recycler);
-        newsrecycler.setLayoutManager(new GridLayoutManager(this,2));
+        newsrecycler.setLayoutManager(new LinearLayoutManager(this));
         getNewsdetials();
     }
     private  void getNewsdetials(){

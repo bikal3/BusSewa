@@ -1,5 +1,6 @@
 package com.example.bustracker.api;
 
+import com.example.bustracker.response.BusRouteResponse;
 import com.example.bustracker.response.JobVacancyResponse;
 import com.example.bustracker.response.NewsResponse;
 
@@ -16,5 +17,9 @@ public interface APIs {
     @GET("jobvacancy")
     Call<JobVacancyResponse> fetchjobVacancy();
     @GET("jobvacancy/{id}")
-    Call<JobVacancyResponse> fetchsingjobvacancy(@Path("id")String id);
+    Call<JobVacancyResponse> fetchsingjobvacancy(@Path("id") String id);
+    @GET("busroute")
+    Call<BusRouteResponse> fetchbusRoute();
+    @GET("busroute/{id}")
+    Call<BusRouteResponse> fetchsingbusRoute(@Path("id") String id);
 }
