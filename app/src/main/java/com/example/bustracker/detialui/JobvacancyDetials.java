@@ -1,6 +1,7 @@
 package com.example.bustracker.detialui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -17,38 +18,47 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.TestOnly;
 
 public class JobvacancyDetials extends AppCompatActivity {
- private  TextView title,requirement,experience,salary,time,desc;
- private String id;
- private JobVacancyImpl jobVacancyImpl;
- private JobVacancyModel jobVacancyModel;
+    private TextView title, requirement, experience, salary, time, desc;
+    private String id;
+    private JobVacancyImpl jobVacancyImpl;
+    private JobVacancyModel jobVacancyModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vacancy_main);
-        title=findViewById(R.id.txt_title_vm);
-        requirement=findViewById(R.id.txt_req_vm);
-        experience=findViewById(R.id.txt_exp_vm);
-        salary=findViewById(R.id.txt_salary_vm);
-        time=findViewById(R.id.txt_hours_vm);
-        desc=findViewById(R.id.txt_desc_vm);
+        title = findViewById(R.id.txt_title_vm);
+        requirement = findViewById(R.id.txt_req_vm);
+        experience = findViewById(R.id.txt_exp_vm);
+        salary = findViewById(R.id.txt_salary_vm);
+        time = findViewById(R.id.txt_hours_vm);
+        desc = findViewById(R.id.txt_desc_vm);
 
-        id=getIntent().getStringExtra("id");
-        jobVacancyImpl=new JobVacancyImpl();
+        id = getIntent().getStringExtra("id");
+        jobVacancyImpl = new JobVacancyImpl();
         getJobVacancyDetail();
-
+        initToolbar();
 
     }
 
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.trans_det_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("JobVacancy Details");
+
+    }
+
+
     private void getJobVacancyDetail() {
         Helper.StrictMode();
-        if(!id.equals("")){
-            JobVacancyResponse jobVacancyResponse=jobVacancyImpl.getSingleJobVacancy(id);
-            if(jobVacancyResponse!=null){
-                jobVacancyModel =jobVacancyResponse.getJobvacancy();
+        if (!id.equals("")) {
+            JobVacancyResponse jobVacancyResponse = jobVacancyImpl.getSingleJobVacancy(id);
+            if (jobVacancyResponse != null) {
+                jobVacancyModel = jobVacancyResponse.getJobvacancy();
                 populateDetails(jobVacancyModel);
 
-            };
+            }
+            ;
         }
     }
 

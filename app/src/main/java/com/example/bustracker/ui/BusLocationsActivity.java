@@ -2,11 +2,13 @@ package com.example.bustracker.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -24,6 +26,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -32,12 +35,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class BusLocationsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
     GoogleMap map;
     Location currentLocation;
+    Context context;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
     private double longitude;
@@ -51,11 +56,6 @@ public class BusLocationsActivity extends FragmentActivity implements OnMapReady
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         fetchLastLocation();
-//        googleApiClient=new GoogleApiClient.Builder(this)
-//                .addConnectionCallbacks(this)
-//                .addOnConnectionFailedListener(this)
-//                .addApi(LocationSe)
-//        setUpMapIfNeeded();
     }
 
     private void fetchLastLocation() {
@@ -80,17 +80,27 @@ public class BusLocationsActivity extends FragmentActivity implements OnMapReady
         });
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        UiSettings uiSettings = googleMap.getUiSettings();
+        uiSettings.setZoomControlsEnabled(true);
+        uiSettings.setCompassEnabled(true);
+        uiSettings.setScrollGesturesEnabled(true);
         map = googleMap;
-//        LatLng Pokhara = new LatLng(33.785022, 72.721992);
-        LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 
-        map.addMarker(new MarkerOptions().position(latLng).title("I am here").icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
-//        map.moveCamera(CameraUpdateFactory.newLatLngZoom(Pokhara,10F));
+//        ArrayList<Marker> markers=new ArrayList<>();
+        LatLng bus1 = new LatLng(27.699904, 85.313729);
+        LatLng bus2 = new LatLng(27.719478, 85.318278);
+        LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+        map.addMarker(new MarkerOptions().position(bus1).title("Ba 2 kha 5236" + " " + "Lagankhel - Buspark").icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
+        map.addMarker(new MarkerOptions().position(bus1).title("Ba 2 kha 5236").icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(bus1, 10F));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(bus2, 10F));
+        map.setMyLocationEnabled(true);
 
         map.animateCamera(
-                CameraUpdateFactory.newLatLngZoom(latLng, 14f)
+                CameraUpdateFactory.newLatLngZoom(bus1, 14f)
         );
         map.setOnInfoWindowClickListener(this);
     }

@@ -1,6 +1,7 @@
 package com.example.bustracker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.app.FragmentTransaction;
@@ -27,38 +28,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnjobvacancy = findViewById(R.id.btn_job_vacancy_main);
         btnlocation = findViewById(R.id.btn_bus_location_main);
         btnnews = findViewById(R.id.btn_news_main);
-        btnsignin = findViewById(R.id.btn_signin_main);
 
-
-        btnsignin.setOnClickListener(this);
         btnnews.setOnClickListener(this);
         btnlocation.setOnClickListener(this);
         btnjobvacancy.setOnClickListener(this);
         btnBusroute.setOnClickListener(this);
+        initToolbar();
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.trans_det_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("BusSewa");
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_bus_location_main:
-                Intent intent= new Intent(this, BusLocationsActivity.class);
+                Intent intent = new Intent(this, BusLocationsActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_busroute_main:
-                Intent intent2= new Intent(this, BusRouteActivity.class);
+                Intent intent2 = new Intent(this, BusRouteActivity.class);
                 startActivity(intent2);
                 break;
             case R.id.btn_job_vacancy_main:
-                Intent intent3= new Intent(this, JobVacancyActivity.class);
+                Intent intent3 = new Intent(this, JobVacancyActivity.class);
                 startActivity(intent3);
                 break;
             case R.id.btn_news_main:
-                Intent intent4= new Intent(this, NewsActivity.class);
+                Intent intent4 = new Intent(this, NewsActivity.class);
                 startActivity(intent4);
-                break;
-            case R.id.btn_signin_main:
-                Intent intent5= new Intent(this, NewsActivity.class);
-                startActivity(intent5);
                 break;
         }
     }

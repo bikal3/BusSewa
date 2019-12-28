@@ -1,6 +1,7 @@
 package com.example.bustracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,19 +25,27 @@ public class BusRouteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bus_route);
-        busRouteImpl=new BusRouteImpl();
-        busRouteModelList=new ArrayList<>();
+        busRouteImpl = new BusRouteImpl();
+        busRouteModelList = new ArrayList<>();
 
-        busrouterecycler=findViewById(R.id.bus_route_recycler);
+        busrouterecycler = findViewById(R.id.bus_route_recycler);
         busrouterecycler.setLayoutManager(new LinearLayoutManager(this));
         getbusroutelist();
+        initToolbar();
 
     }
 
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.trans_det_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Bus Route");
+    }
+
+
     private void getbusroutelist() {
         Helper.StrictMode();
-        busRouteModelList=busRouteImpl.getBusRoute();
-        BusRouteAdapter busRouteAdapter=new BusRouteAdapter(this,busRouteModelList);
+        busRouteModelList = busRouteImpl.getBusRoute();
+        BusRouteAdapter busRouteAdapter = new BusRouteAdapter(this, busRouteModelList);
         busrouterecycler.setAdapter(busRouteAdapter);
     }
 }

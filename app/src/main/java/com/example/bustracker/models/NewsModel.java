@@ -3,7 +3,7 @@ package com.example.bustracker.models;
 import java.io.Serializable;
 
 public class NewsModel implements Serializable {
-    private String title,ndate,publication,description1,description2;
+    private String title,ndate,publication,description1,description2,image;
     private String id;
 
     public String getId() {
@@ -28,5 +28,9 @@ public class NewsModel implements Serializable {
 
     public String getDescription2() {
         return description2;
+    }
+
+    public String getImage() {
+        return image;
     }
 }

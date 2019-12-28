@@ -36,7 +36,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-        NewsModel newsModel=newsList.get(position);
+        NewsModel newsModel = newsList.get(position);
         holder.bindData(newsModel);
     }
 
@@ -58,18 +58,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent newsDetials=new Intent(context, NewsDetials.class);
-                    newsDetials.putExtra("id",newsList.get(getAdapterPosition()).getId());
+                    Intent newsDetials = new Intent(context, NewsDetials.class);
+                    newsDetials.putExtra("id", newsList.get(getAdapterPosition()).getId());
                     context.startActivity(newsDetials);
                 }
             });
         }
 
-        public void bindData(NewsModel newsModel){
+        public void bindData(NewsModel newsModel) {
             newsTitle.setText(newsModel.getTitle());
 //            newsDate.setText(newsModel.getNdate());
             newsDate.setText(Helper.formatDate("yyyy-MM-dd HH:mm:ss", "dd-MMM", newsModel.getNdate()));
             newsPublication.setText(newsModel.getPublication());
+            Helper.setImage(newsModel.getImage(), newsImage);
+//            Helper.setIcon(transaction.getCategory().getIcon(), transIcon);
         }
     }
 }

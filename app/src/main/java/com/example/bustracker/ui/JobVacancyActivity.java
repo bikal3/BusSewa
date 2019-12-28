@@ -1,6 +1,7 @@
 package com.example.bustracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +34,12 @@ public class JobVacancyActivity extends AppCompatActivity {
         jobVacancyrecycler=findViewById(R.id.job_vacancy_recycler);
         jobVacancyrecycler.setLayoutManager(new LinearLayoutManager(this));
         getJobVacancyList();
+        initToolbar();
+    }
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.trans_det_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("JobVacancy");
     }
 
     private void getJobVacancyList() {

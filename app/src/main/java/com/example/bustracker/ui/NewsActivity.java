@@ -1,6 +1,7 @@
 package com.example.bustracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,17 +30,26 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
-        newsImpl=new NewsImpl();
-        newsModelsList= new ArrayList<>();
+        newsImpl = new NewsImpl();
+        newsModelsList = new ArrayList<>();
 
-        newsrecycler=findViewById(R.id.news_recycler);
+        newsrecycler = findViewById(R.id.news_recycler);
         newsrecycler.setLayoutManager(new LinearLayoutManager(this));
         getNewsdetials();
+        initToolbar();
     }
-    private  void getNewsdetials(){
+
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.trans_det_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("News");
+
+    }
+
+    private void getNewsdetials() {
         Helper.StrictMode();
-        newsModelsList= newsImpl.getNews();
-        NewsAdapter newsAdapter=new NewsAdapter(this,newsModelsList);
+        newsModelsList = newsImpl.getNews();
+        NewsAdapter newsAdapter = new NewsAdapter(this, newsModelsList);
         newsrecycler.setAdapter(newsAdapter);
     }
 }
